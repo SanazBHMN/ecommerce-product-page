@@ -1,21 +1,12 @@
-import "./App.css";
+// import "./App.css";
 import { Box } from "@mui/material";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <Box
-      sx={{
-        height: "300px",
-        width: {
-          xs: 100,
-          sm: 200,
-          md: 300,
-          lg: 400,
-          xl: 500,
-        },
-        bgcolor: "primary.main",
-      }}
-    ></Box>
+    <Box sx={{ p: "1rem" }}>
+      <Navbar />
+    </Box>
   );
 }
 

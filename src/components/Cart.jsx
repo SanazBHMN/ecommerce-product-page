@@ -1,5 +1,5 @@
 import { IconButton } from "@mui/material";
-import cart from "../../public/images/icon-cart.svg";
+import cart from "/images/icon-cart.svg";
 
 const Cart = () => {
   return (

@@ -1,7 +1,7 @@
-import logo from "../../public/images/logo.svg";
+import logo from "/images/logo.svg";
 import Profile from "./Profile";
 import Cart from "./Cart";
-import Drawer from "./Drawer";
+import SideMenu from "./SideMenu";
 import { Stack } from "@mui/material";
 
 const Navbar = () => {
@@ -14,7 +14,7 @@ const Navbar = () => {
           justifyContent="flex-start"
           spacing={2}
         >
-          <Drawer />
+          <SideMenu />
           <img src={logo} alt="logo" />
         </Stack>
         <Stack direction="row" alignItems="center" spacing={2}>

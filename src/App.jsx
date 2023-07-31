@@ -1,15 +1,14 @@
 // import "./App.css";
-import { Box } from "@mui/material";
 import Navbar from "./components/Navbar";
 import Carousel from "./components/Carousel";
-import ProductDescription from "./components/ProductDescription";
+import MainContent from "./components/MainContent";
 
 function App() {
   return (
     <>
       <Navbar />
       <Carousel />
-      <ProductDescription />
+      <MainContent />
     </>
   );
 }

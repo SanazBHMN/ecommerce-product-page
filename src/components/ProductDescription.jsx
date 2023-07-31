@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 const ProductDescription = () => {
   return (
-    <Box sx={{ p: 2 }}>
+    <>
       <Typography
         variant="subtitle2"
         color="primary"
@@ -21,7 +21,7 @@ const ProductDescription = () => {
         Featuring a durable rubber outer sole, they’ll withstand everything the
         weather can offer.
       </Typography>
-    </Box>
+    </>
   );
 };
 

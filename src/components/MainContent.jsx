@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import Count from "./Count";
 import Price from "./Price";
 import ProductDescription from "./ProductDescription";
+import ActionButton from "./ActionButton";
 
 const MainContent = () => {
   return (
@@ -9,6 +10,7 @@ const MainContent = () => {
       <ProductDescription />
       <Price />
       <Count />
+      <ActionButton />
     </Box>
   );
 };

@@ -10,7 +10,12 @@ const Count = () => {
       direction="row"
       justifyContent="space-between"
       alignItems="center"
-      sx={{ bgcolor: "secondary.light", color: "secondary.darker" }}
+      sx={{
+        bgcolor: "secondary.light",
+        color: "secondary.darker",
+        marginTop: "1rem",
+        marginBottom: "1rem",
+      }}
     >
       <Button startIcon={<RemoveIcon color="primary" />}></Button>
       <Typography>{count}</Typography>

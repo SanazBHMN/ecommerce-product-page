@@ -4,7 +4,7 @@ import Cart from "./Cart";
 import SideMenu from "./SideMenu";
 import { Box, Stack } from "@mui/material";
 
-const Navbar = () => {
+const Navbar = ({ count, title, discounted }) => {
   return (
     <Box sx={{ p: 2 }}>
       <nav>
@@ -23,7 +23,7 @@ const Navbar = () => {
             <img src={logo} alt="logo" />
           </Stack>
           <Stack direction="row" alignItems="center" spacing={2}>
-            <Cart />
+            <Cart count={count} title={title} discounted={discounted} />
             <Profile />
           </Stack>
         </Stack>

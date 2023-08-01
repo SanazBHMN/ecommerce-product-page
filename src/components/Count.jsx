@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { Button, Stack, Typography } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 
-const Count = () => {
-  const [count, setCount] = useState(0);
+const Count = ({ count, increaseCount, decreaseCount }) => {
   return (
     <Stack
       direction="row"
@@ -17,9 +15,15 @@ const Count = () => {
         marginBottom: "1rem",
       }}
     >
-      <Button startIcon={<RemoveIcon color="primary" />}></Button>
+      <Button
+        startIcon={<RemoveIcon color="primary" />}
+        onClick={decreaseCount}
+      ></Button>
       <Typography>{count}</Typography>
-      <Button endIcon={<AddIcon color="primary" />}></Button>
+      <Button
+        endIcon={<AddIcon color="primary" />}
+        onClick={increaseCount}
+      ></Button>
     </Stack>
   );
 };

@@ -1,6 +1,6 @@
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
-const ProductDescription = () => {
+const ProductDescription = ({ title, description }) => {
   return (
     <>
       <Typography
@@ -14,12 +14,10 @@ const ProductDescription = () => {
         variant="h5"
         style={{ fontWeight: "bold", marginTop: 9, marginBottom: 9 }}
       >
-        Fall Limited Edition Sneakers
+        {title}
       </Typography>
       <Typography color="secondary.dark" paragraph>
-        These low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they’ll withstand everything the
-        weather can offer.
+        {description}
       </Typography>
     </>
   );

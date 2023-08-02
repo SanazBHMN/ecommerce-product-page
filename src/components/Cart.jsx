@@ -20,7 +20,7 @@ const Cart = ({ count, title, discounted }) => {
   return (
     <>
       <Badge
-        badgeContent={3}
+        badgeContent={count}
         color="primary"
         aria-describedby={id}
         onClick={handleClick}

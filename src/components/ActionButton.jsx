@@ -1,4 +1,4 @@
-import { Button, Stack, colors } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import cart from "/images/icon-cart.svg";
 

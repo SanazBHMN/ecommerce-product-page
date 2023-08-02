@@ -1,4 +1,5 @@
 export const content = {
+  navbar: ["Collections", "Men", "Women", "About", "Contact"],
   product: {
     title: "Fall Limited Edition Sneakers",
     description:

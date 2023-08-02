@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Drawer,
@@ -9,10 +10,10 @@ import {
 } from "@mui/material";
 import menu from "/images/icon-menu.svg";
 import close from "/images/icon-close.svg";
-import { useState } from "react";
+import { content } from "../helpers/Content";
 
 const SideMenu = () => {
-  const menuItems = ["Collections", "Men", "Women", "About", "Contact"];
+  const menuItems = content.navbar;
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (

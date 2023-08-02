@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconButton } from "@mui/material";
+import { Badge } from "@mui/material";
 import cart from "/images/icon-cart.svg";
 import CartDetails from "./CartDetails";
 
@@ -19,9 +19,14 @@ const Cart = ({ count, title, discounted }) => {
 
   return (
     <>
-      <IconButton aria-describedby={id} onClick={handleClick}>
-        <img src={cart} alt="" />
-      </IconButton>
+      <Badge
+        badgeContent={3}
+        color="primary"
+        aria-describedby={id}
+        onClick={handleClick}
+      >
+        <img src={cart} />
+      </Badge>
       <CartDetails
         id={id}
         open={open}

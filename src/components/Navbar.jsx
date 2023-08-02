@@ -1,34 +1,66 @@
 import logo from "/images/logo.svg";
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Stack,
+} from "@mui/material";
 import Profile from "./Profile";
 import Cart from "./Cart";
 import SideMenu from "./SideMenu";
-import { Box, Stack } from "@mui/material";
+import { content } from "../helpers/Content";
 
 const Navbar = ({ count, title, discounted }) => {
+  const menuItems = content.navbar;
   return (
-    <Box sx={{ p: 2 }}>
-      <nav>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-        >
+    <>
+      <Box sx={{ p: 2 }}>
+        <nav>
           <Stack
             direction="row"
-            alignItems="baseline"
-            justifyContent="flex-start"
-            spacing={2}
+            alignItems="center"
+            justifyContent="space-between"
           >
-            <SideMenu />
-            <img src={logo} alt="logo" />
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="flex-start"
+              spacing={2}
+            >
+              <Box
+                sx={{
+                  display: {
+                    md: "none",
+                  },
+                }}
+              >
+                <SideMenu />
+              </Box>
+              <img src={logo} alt="logo" />
+              <Box sx={{ display: { xs: "none", md: "block" } }}>
+                <List>
+                  <Stack direction="row">
+                    {menuItems.map((item, index) => (
+                      <ListItem key={index}>
+                        <ListItemButton>
+                          <ListItemText>{item}</ListItemText>
+                        </ListItemButton>
+                      </ListItem>
+                    ))}
+                  </Stack>
+                </List>
+              </Box>
+            </Stack>
+            <Stack direction="row" alignItems="center" spacing={2}>
+              <Cart count={count} title={title} discounted={discounted} />
+              <Profile />
+            </Stack>
           </Stack>
-          <Stack direction="row" alignItems="center" spacing={2}>
-            <Cart count={count} title={title} discounted={discounted} />
-            <Profile />
-          </Stack>
-        </Stack>
-      </nav>
-    </Box>
+        </nav>
+      </Box>
+    </>
   );
 };
 

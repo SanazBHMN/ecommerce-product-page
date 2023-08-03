@@ -1,6 +1,8 @@
 import logo from "/images/logo.svg";
 import {
   Box,
+  Divider,
+  Link,
   List,
   ListItem,
   ListItemButton,
@@ -16,7 +18,7 @@ const Navbar = ({ count, title, discounted }) => {
   const menuItems = content.navbar;
   return (
     <>
-      <Box sx={{ p: 2 }}>
+      <Box sx={{ p: 2, padding: { md: "20px" } }}>
         <nav>
           <Stack
             direction="row"
@@ -44,9 +46,9 @@ const Navbar = ({ count, title, discounted }) => {
                   <Stack direction="row">
                     {menuItems.map((item, index) => (
                       <ListItem key={index}>
-                        <ListItemButton>
-                          <ListItemText>{item}</ListItemText>
-                        </ListItemButton>
+                        <Link underline="hover" color="secondary.dark">
+                          {item}
+                        </Link>
                       </ListItem>
                     ))}
                   </Stack>
@@ -60,6 +62,14 @@ const Navbar = ({ count, title, discounted }) => {
           </Stack>
         </nav>
       </Box>
+      <Divider
+        sx={{
+          display: {
+            xs: "none",
+            md: "block",
+          },
+        }}
+      />
     </>
   );
 };

@@ -39,7 +39,11 @@ const Cart = ({ count, title, discounted }) => {
         }}
         anchorPosition={{
           top: 80,
-          left: 300,
+          left: 1100,
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center",
         }}
         count={count}
         title={title}

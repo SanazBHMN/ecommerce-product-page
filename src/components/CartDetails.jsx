@@ -21,6 +21,7 @@ const CartDetails = ({
   onClose,
   anchorOrigin,
   anchorPosition,
+  transformOrigin,
   count,
   title,
   discounted,
@@ -34,43 +35,49 @@ const CartDetails = ({
       onClose={onClose}
       anchorOrigin={anchorOrigin}
       anchorPosition={anchorPosition}
+      transformOrigin={transformOrigin}
     >
-      <Box
-        sx={{
-          width: 600,
-        }}
-      >
+      <Box sx={{ width: 400, height: 300 }}>
         <Typography variant="subtitle2" p={2}>
           Cart
         </Typography>
-      </Box>
-      <Divider variant="middle" />
-      <List>
+        <Divider variant="middle" />
         {count > 0 ? (
-          <ListItem>
-            <ListItemButton>
-              <img
-                src={images[0].thumbnail}
-                width={60}
-                style={{
-                  borderRadius: "5px",
-                }}
-              />
-              <Stack direction="column">
-                <ListItemText>{title}</ListItemText>
-                <ListItemText>
-                  ${discounted} x {count} <span>${discounted * count}.00</span>
-                </ListItemText>
-              </Stack>
-              <IconButton>
-                <DeleteIcon />
-              </IconButton>
-            </ListItemButton>
-          </ListItem>
+          <List>
+            <ListItem>
+              <ListItemButton>
+                <img
+                  src={images[0].thumbnail}
+                  width={60}
+                  style={{
+                    borderRadius: "5px",
+                  }}
+                />
+                <Stack direction="column">
+                  <ListItemText>{title}</ListItemText>
+                  <ListItemText>
+                    ${discounted} x {count}{" "}
+                    <span>${discounted * count}.00</span>
+                  </ListItemText>
+                </Stack>
+                <IconButton>
+                  <DeleteIcon />
+                </IconButton>
+              </ListItemButton>
+            </ListItem>
+          </List>
         ) : (
-          <Typography>Your cart is empty</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Typography>Your cart is empty</Typography>
+          </Box>
         )}
-      </List>
+      </Box>
     </Popover>
   );
 };

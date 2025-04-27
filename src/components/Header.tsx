@@ -1,3 +1,4 @@
+import { useState } from "react";
 // imports from MUI
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -13,6 +14,7 @@ import menuIcon from "../assets/images/icon-menu.svg";
 import cartIcon from "../assets/images/icon-cart.svg";
 import avatar from "../assets/images/image-avatar.png";
 import Navbar from "./Navbar";
+import NavDrawer from "./NavDrawer";
 
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
@@ -27,12 +29,17 @@ const CartBadge = styled(Badge)`
 const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleCloseDrawer = () => setOpen(false);
+
+  const handleOpenDrawer = () => setOpen(true);
 
   return (
     <Box
       component="header"
       sx={{
-        padding: "12px 10px",
+        padding: "12px 0",
       }}
     >
       <Stack
@@ -51,7 +58,7 @@ const Header = () => {
           }}
         >
           {isMobile && (
-            <IconButton>
+            <IconButton onClick={handleOpenDrawer}>
               <img src={menuIcon} alt="" />
             </IconButton>
           )}
@@ -60,6 +67,10 @@ const Header = () => {
 
         {/* Navbar only shows on desktop */}
         {!isMobile && <Navbar />}
+
+        {isMobile && open && (
+          <NavDrawer open={open} onClose={handleCloseDrawer} />
+        )}
 
         <Stack
           direction="row"

@@ -40,6 +40,7 @@ const Header = () => {
       component="header"
       sx={{
         padding: "12px 0",
+        borderBottom: isMobile === false ? "1px solid gray" : "",
       }}
     >
       <Stack

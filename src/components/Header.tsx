@@ -1,4 +1,6 @@
 // imports from MUI
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
@@ -10,6 +12,7 @@ import logo from "../assets/images/logo.svg";
 import menuIcon from "../assets/images/icon-menu.svg";
 import cartIcon from "../assets/images/icon-cart.svg";
 import avatar from "../assets/images/image-avatar.png";
+import Navbar from "./Navbar";
 
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
@@ -22,6 +25,9 @@ const CartBadge = styled(Badge)`
 `;
 
 const Header = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <Box
       component="header"
@@ -44,11 +50,17 @@ const Header = () => {
             alignItems: "baseline",
           }}
         >
-          <IconButton>
-            <img src={menuIcon} alt="" />
-          </IconButton>
+          {isMobile && (
+            <IconButton>
+              <img src={menuIcon} alt="" />
+            </IconButton>
+          )}
           <img src={logo} alt="Logo" />
         </Stack>
+
+        {/* Navbar only shows on desktop */}
+        {!isMobile && <Navbar />}
+
         <Stack
           direction="row"
           spacing={0.5}

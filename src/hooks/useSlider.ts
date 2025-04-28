@@ -22,7 +22,9 @@ const useSlider = (imageUrls: string[]) => {
 
   return {
     currentImageIndex,
-    currenImageUrl: imageUrls[currentImageIndex],
+    currentImageUrl: imageUrls[currentImageIndex],
+    isFirstImage: currentImageIndex === 0,
+    isLastImage: currentImageIndex === imageUrls.length - 1,
     next,
     back,
     goTo,

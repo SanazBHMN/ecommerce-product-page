@@ -1,4 +1,4 @@
-import ImageSlicer from "../components/ImageSlider";
+import ImageSlider from "../components/imageSlider";
 
 const HomePage = () => {
   return (
@@ -8,7 +8,8 @@ const HomePage = () => {
 
       {/* IN BIGGER SCREEN SIZED */}
       {/* Image + ThumbNail + Modal */}
-      <ImageSlicer />
+      {/* <ImageSlicer /> */}
+      <ImageSlider />
     </div>
   );
 };

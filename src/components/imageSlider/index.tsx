@@ -13,10 +13,12 @@ import p1Thumb from "../../assets/images/image-product-1-thumbnail.jpg";
 import p2Thumb from "../../assets/images/image-product-2-thumbnail.jpg";
 import p3Thumb from "../../assets/images/image-product-3-thumbnail.jpg";
 import p4Thumb from "../../assets/images/image-product-4-thumbnail.jpg";
+import useScreen from "../../hooks/useScreen";
 
 function ImageSlider() {
   const sliderImages = [p1, p2, p3, p4];
   const thumbnailUrls = [p1Thumb, p2Thumb, p3Thumb, p4Thumb];
+  const { isMobile } = useScreen();
 
   const {
     currentImageIndex,
@@ -36,14 +38,17 @@ function ImageSlider() {
         onBack={back}
         isFirst={isFirstImage}
         isLast={isLastImage}
+        onSmallScreen={isMobile}
       />
       {/* <SliderControls onNext={next} onBack={back} /> */}
       {/* only on desktop and modal */}
-      {/* <ThumbnailList
-        thumbnails={thumbnailUrls}
-        currentIndex={currentImageIndex}
-        onThumbnailClick={goTo}
-      /> */}
+      {!isMobile && (
+        <ThumbnailList
+          thumbnails={thumbnailUrls}
+          currentIndex={currentImageIndex}
+          onThumbnailClick={goTo}
+        />
+      )}
     </>
   );
 }

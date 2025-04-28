@@ -12,9 +12,17 @@ interface LightBoxProps {
   onBack?: () => void;
   isFirst: boolean;
   isLast: boolean;
+  onSmallScreen: boolean;
 }
 
-function LightBox({ image, onNext, onBack, isFirst, isLast }: LightBoxProps) {
+function LightBox({
+  image,
+  onNext,
+  onBack,
+  isFirst,
+  isLast,
+  onSmallScreen,
+}: LightBoxProps) {
   return (
     <Box
       sx={{
@@ -26,48 +34,50 @@ function LightBox({ image, onNext, onBack, isFirst, isLast }: LightBoxProps) {
         style={{ width: "100%", height: "auto" }}
         alt="Product"
       />
-      <Stack
-        direction={"row"}
-        sx={{
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <IconButton
-          onClick={onBack}
-          // disabled={isFirst}
+      {onSmallScreen && (
+        <Stack
+          direction={"row"}
           sx={{
-            position: "absolute",
-            top: "50%",
-            bottom: "50%",
-            left: "10px",
-            width: "40px",
-            height: "40px",
-            backgroundColor: "white",
-            display: "grid",
-            placeItems: "center",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <img src={previousIcon} alt="Previous Picture" />
-        </IconButton>
-        <IconButton
-          onClick={onNext}
-          // disabled={isLast}
-          sx={{
-            position: "absolute",
-            top: "50%",
-            bottom: "50%",
-            right: "10px",
-            width: "40px",
-            height: "40px",
-            backgroundColor: "white",
-            display: "grid",
-            placeItems: "center",
-          }}
-        >
-          <img src={nextIcon} alt="Next Picture" />
-        </IconButton>
-      </Stack>
+          <IconButton
+            onClick={onBack}
+            disabled={isFirst}
+            sx={{
+              position: "absolute",
+              top: "50%",
+              bottom: "50%",
+              left: "10px",
+              width: "40px",
+              height: "40px",
+              backgroundColor: "white",
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
+            <img src={previousIcon} alt="Previous Picture" />
+          </IconButton>
+          <IconButton
+            onClick={onNext}
+            disabled={isLast}
+            sx={{
+              position: "absolute",
+              top: "50%",
+              bottom: "50%",
+              right: "10px",
+              width: "40px",
+              height: "40px",
+              backgroundColor: "white",
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
+            <img src={nextIcon} alt="Next Picture" />
+          </IconButton>
+        </Stack>
+      )}
     </Box>
   );
 }

@@ -1,8 +1,9 @@
+// import components
 import ImageSlider from "../components/imageSlider";
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       {/* IN SMALL SCREEN SIZES: */}
       {/* <ImageSlicer /> */}
 
@@ -10,7 +11,7 @@ const HomePage = () => {
       {/* Image + ThumbNail + Modal */}
       {/* <ImageSlicer /> */}
       <ImageSlider />
-    </div>
+    </>
   );
 };
 

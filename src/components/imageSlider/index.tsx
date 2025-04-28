@@ -29,7 +29,7 @@ function ImageSlider() {
   } = useSlider(sliderImages);
 
   return (
-    <div>
+    <>
       <LightBox
         image={sliderImages[currentImageIndex]}
         onNext={next}
@@ -37,13 +37,14 @@ function ImageSlider() {
         isFirst={isFirstImage}
         isLast={isLastImage}
       />
-      <SliderControls onNext={next} onBack={back} />
-      <ThumbnailList
+      {/* <SliderControls onNext={next} onBack={back} /> */}
+      {/* only on desktop and modal */}
+      {/* <ThumbnailList
         thumbnails={thumbnailUrls}
         currentIndex={currentImageIndex}
         onThumbnailClick={goTo}
-      />
-    </div>
+      /> */}
+    </>
   );
 }
 

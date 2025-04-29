@@ -1,3 +1,6 @@
+// imports from MUI
+import Box from "@mui/material/Box";
+
 interface ThumbnailListProps {
   thumbnails: string[];
   currentIndex: number;
@@ -10,7 +13,14 @@ function ThumbnailList({
   onThumbnailClick,
 }: ThumbnailListProps) {
   return (
-    <div style={{ display: "flex", gap: "10px" }}>
+    <Box
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        gap: "10px",
+        marginTop: "1rem",
+      }}
+    >
       {thumbnails.map((thumb, index) => (
         <img
           key={index}
@@ -28,7 +38,7 @@ function ThumbnailList({
           onClick={() => onThumbnailClick(index)}
         />
       ))}
-    </div>
+    </Box>
   );
 }
 

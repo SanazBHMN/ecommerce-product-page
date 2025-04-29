@@ -1,17 +1,22 @@
 // import components
 import ImageSlider from "../components/imageSlider";
+// imports from MUI
+import Grid from "@mui/material/Grid";
+// hooks
+import useScreen from "../hooks/useScreen";
 
 const HomePage = () => {
-  return (
-    <>
-      {/* IN SMALL SCREEN SIZES: */}
-      {/* <ImageSlicer /> */}
+  const isMobile = useScreen();
 
-      {/* IN BIGGER SCREEN SIZED */}
-      {/* Image + ThumbNail + Modal */}
-      {/* <ImageSlicer /> */}
+  return (
+    <Grid
+      sx={{
+        marginTop: isMobile ? "0" : "5rem",
+        padding: isMobile ? "0" : "0 2rem",
+      }}
+    >
       <ImageSlider />
-    </>
+    </Grid>
   );
 };
 

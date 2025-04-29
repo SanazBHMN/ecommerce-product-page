@@ -2,6 +2,8 @@
 import LightBox from "./LightBox";
 import ThumbnailList from "./ThumbnailList";
 import SliderControls from "./SliderControls";
+// imports from MUI
+import Stack from "@mui/material/Stack";
 // hooks
 import useSlider from "../../hooks/useSlider";
 // import assets
@@ -18,7 +20,7 @@ import useScreen from "../../hooks/useScreen";
 function ImageSlider() {
   const sliderImages = [p1, p2, p3, p4];
   const thumbnailUrls = [p1Thumb, p2Thumb, p3Thumb, p4Thumb];
-  const { isMobile } = useScreen();
+  const isMobile = useScreen();
 
   const {
     currentImageIndex,
@@ -31,7 +33,7 @@ function ImageSlider() {
   } = useSlider(sliderImages);
 
   return (
-    <>
+    <Stack sx={{ width: !isMobile ? "350px" : "100%" }}>
       <LightBox
         image={sliderImages[currentImageIndex]}
         onNext={next}
@@ -49,7 +51,7 @@ function ImageSlider() {
           onThumbnailClick={goTo}
         />
       )}
-    </>
+    </Stack>
   );
 }
 

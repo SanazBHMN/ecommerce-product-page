@@ -26,12 +26,17 @@ function LightBox({
   return (
     <Box
       sx={{
+        width: "100%",
         position: "relative",
       }}
     >
       <img
         src={image}
-        style={{ width: "100%", height: "auto" }}
+        style={{
+          width: "100%",
+          height: "auto",
+          borderRadius: !onSmallScreen ? "10px" : 0,
+        }}
         alt="Product"
       />
       {onSmallScreen && (

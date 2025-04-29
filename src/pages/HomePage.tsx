@@ -1,5 +1,6 @@
 // import components
 import ImageSlider from "../components/imageSlider";
+import Content from "../components/Content";
 // imports from MUI
 import Grid from "@mui/material/Grid";
 // hooks
@@ -16,6 +17,7 @@ const HomePage = () => {
       }}
     >
       <ImageSlider />
+      <Content />
     </Grid>
   );
 };

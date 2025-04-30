@@ -9,14 +9,18 @@ import {
   productInteractionReducer,
   increaseQuantity,
   decreaseQuantity,
+  resetQuantity,
 } from "./slices/productInteractionSlice";
 
 const store = configureStore({
   reducer: {
     cart: cartReducer,
-    quantity: productInteractionReducer,
+    product: productInteractionReducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export {
   store,
@@ -25,4 +29,5 @@ export {
   clearCart,
   increaseQuantity,
   decreaseQuantity,
+  resetQuantity,
 };

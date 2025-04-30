@@ -1,5 +1,5 @@
 // imports from MUI
-import Box from "@mui/material/Box";
+import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 // import assets
@@ -24,8 +24,19 @@ function QuantitySelector({
   //   const canIncrease = quantity > min;
   //   const canDecrease = quantity < max;
 
+  const StyledBox = styled("div")(({ theme }) => ({
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.primary,
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "8px 0",
+    borderRadius: "5px",
+    fontWeight: "bold",
+  }));
+
   return (
-    <Box>
+    <StyledBox>
       <IconButton onClick={onDecrease}>
         <img src={minusIcon} alt="Decrease" />
       </IconButton>
@@ -33,7 +44,7 @@ function QuantitySelector({
       <IconButton onClick={onIncrease}>
         <img src={plusIcon} alt="Increase" />
       </IconButton>
-    </Box>
+    </StyledBox>
   );
 }
 

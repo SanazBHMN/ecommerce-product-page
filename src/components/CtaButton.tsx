@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, resetQuantity, RootState } from "../store";
 // imports from MUI
+import { theme } from "../theme";
 import Button from "@mui/material/Button";
 // import assets
 import cartIcon from "../assets/images/icon-cart.svg";
@@ -33,9 +34,13 @@ function CtaButton({ isDisabled }: CtaButtonProps) {
 
   return (
     <Button
+      sx={{
+        color: theme.palette.background.paper,
+        textTransform: "none",
+      }}
       variant="contained"
       startIcon={buttonIcon}
-      color="secondary"
+      color="primary"
       onClick={handleAddToCart}
       disabled={isDisabled}
     >

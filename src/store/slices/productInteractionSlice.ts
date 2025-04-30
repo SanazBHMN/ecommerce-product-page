@@ -9,15 +9,18 @@ const productInteractionSlice = createSlice({
     quantity: 0,
   },
   reducers: {
-    increaseQuantity(state, action) {
+    increaseQuantity(state) {
       state.quantity += 1;
     },
-    decreaseQuantity(state, action) {
+    decreaseQuantity(state) {
       state.quantity -= 1;
+    },
+    resetQuantity(state) {
+      state.quantity = 0;
     },
   },
 });
 
-export const { increaseQuantity, decreaseQuantity } =
+export const { increaseQuantity, decreaseQuantity, resetQuantity } =
   productInteractionSlice.actions;
 export const productInteractionReducer = productInteractionSlice.reducer;

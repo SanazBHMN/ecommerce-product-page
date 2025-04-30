@@ -15,6 +15,7 @@ import cartIcon from "../assets/images/icon-cart.svg";
 import avatar from "../assets/images/image-avatar.png";
 import Navbar from "./Navbar";
 import NavDrawer from "./NavDrawer";
+import { useSelector } from "react-redux";
 
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
@@ -30,6 +31,10 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState<boolean>(false);
+
+  const cartItems = useSelector((state) => state.cart.data);
+
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleCloseDrawer = () => setOpen(false);
 
@@ -83,7 +88,7 @@ const Header = () => {
         >
           <IconButton>
             <img src={cartIcon} />
-            <CartBadge badgeContent={3} />
+            <CartBadge badgeContent={totalItems} />
           </IconButton>
           <IconButton>
             <Avatar

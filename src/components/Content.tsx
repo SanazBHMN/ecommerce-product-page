@@ -1,3 +1,5 @@
+import { useSelector, useDispatch } from "react-redux";
+import { increaseQuantity, decreaseQuantity } from "../store";
 // imports fro MUI
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -6,6 +8,18 @@ import CtaButton from "./CtaButton";
 import QuantitySelector from "./QuantitySelector";
 
 function Content() {
+  const dispatch = useDispatch();
+
+  const quantity = useSelector((state: any) => state.product.quantity);
+
+  const handleIncreaseQuantity = () => {
+    dispatch(increaseQuantity());
+  };
+
+  const handleDecreaseQuantity = () => {
+    dispatch(decreaseQuantity());
+  };
+
   return (
     <Box component="main">
       <Stack>
@@ -18,8 +32,12 @@ function Content() {
         </Typography>
       </Stack>
       <Stack>
-        <QuantitySelector />
-        <CtaButton />
+        <QuantitySelector
+          quantity={quantity}
+          onIncrease={handleIncreaseQuantity}
+          onDecrease={handleDecreaseQuantity}
+        />
+        <CtaButton isDisabled={quantity === 0} />
       </Stack>
     </Box>
   );

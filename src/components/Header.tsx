@@ -17,6 +17,7 @@ import cartIcon from "../assets/images/icon-cart.svg";
 import avatar from "../assets/images/image-avatar.png";
 import Navbar from "./Navbar";
 import NavDrawer from "./NavDrawer";
+import { Link } from "react-router-dom";
 
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
@@ -70,7 +71,9 @@ const Header = () => {
               <img src={menuIcon} alt="" />
             </IconButton>
           )}
-          <img src={logo} alt="Logo" />
+          <Link to="/">
+            <img src={logo} alt="Logo" />
+          </Link>
         </Stack>
 
         {/* Navbar only shows on desktop */}

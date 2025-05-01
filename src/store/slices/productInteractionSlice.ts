@@ -13,6 +13,7 @@ const productInteractionSlice = createSlice({
       state.quantity += 1;
     },
     decreaseQuantity(state) {
+      if (state.quantity <= 0) return;
       state.quantity -= 1;
     },
     resetQuantity(state) {

@@ -50,7 +50,7 @@ function Content() {
           onIncrease={handleIncreaseQuantity}
           onDecrease={handleDecreaseQuantity}
         />
-        <CtaButton isDisabled={quantity === 0} />
+        <CtaButton isDisabled={quantity <= 0} />
       </Stack>
     </Box>
   );

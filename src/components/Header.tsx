@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 // imports from MUI
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -15,7 +17,6 @@ import cartIcon from "../assets/images/icon-cart.svg";
 import avatar from "../assets/images/image-avatar.png";
 import Navbar from "./Navbar";
 import NavDrawer from "./NavDrawer";
-import { useSelector } from "react-redux";
 
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
@@ -23,7 +24,8 @@ const CartBadge = styled(Badge)`
     right: 3px;
     padding-left: 10px;
     padding-right: 10px;
-    background-color: red;
+    color: white;
+    font-weight: bold;
   }
 `;
 
@@ -32,7 +34,7 @@ const Header = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState<boolean>(false);
 
-  const cartItems = useSelector((state) => state.cart.data);
+  const cartItems = useSelector((state: RootState) => state.cart.data);
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -88,7 +90,7 @@ const Header = () => {
         >
           <IconButton>
             <img src={cartIcon} />
-            <CartBadge badgeContent={totalItems} />
+            <CartBadge badgeContent={totalItems} color="primary" />
           </IconButton>
           <IconButton>
             <Avatar

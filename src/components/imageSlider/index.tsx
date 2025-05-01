@@ -33,7 +33,7 @@ function ImageSlider() {
   } = useSlider(sliderImages);
 
   return (
-    <Stack sx={{ width: !isMobile ? "350px" : "100%" }}>
+    <Stack sx={{ width: !isMobile ? "400px" : "100%" }}>
       <LightBox
         image={sliderImages[currentImageIndex]}
         onNext={next}

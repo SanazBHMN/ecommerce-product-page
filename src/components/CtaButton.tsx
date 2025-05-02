@@ -22,7 +22,7 @@ function CtaButton({ isDisabled }: CtaButtonProps) {
 
     const item: CartItem = {
       id: 1,
-      name: "SOME DUMMY PRODUCT NAME",
+      name: "Fall Limited Edition Sneakers",
       price: 123,
       quantity: quantity,
       totalCost: 125 * quantity,

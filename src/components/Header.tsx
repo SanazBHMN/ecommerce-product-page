@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 // imports from MUI
@@ -9,6 +10,7 @@ import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
+import Cart from "./Cart";
 import { badgeClasses, styled } from "@mui/material";
 // import assets
 import logo from "../assets/images/logo.svg";
@@ -17,7 +19,6 @@ import cartIcon from "../assets/images/icon-cart.svg";
 import avatar from "../assets/images/image-avatar.png";
 import Navbar from "./Navbar";
 import NavDrawer from "./NavDrawer";
-import { Link } from "react-router-dom";
 
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
@@ -34,14 +35,25 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState<boolean>(false);
+  // const [isCartOpen, setIsCartOpen] = useState(false);
 
   const cartItems = useSelector((state: RootState) => state.cart.data);
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
+  // handle drawer
   const handleCloseDrawer = () => setOpen(false);
 
   const handleOpenDrawer = () => setOpen(true);
+
+  const [anchor, setAnchor] = useState<null | HTMLElement>(null);
+
+  const cartopen = Boolean(anchor);
+  // handle cart
+  const popupId = cartopen ? "simple-popper" : undefined;
+  const handleCartClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchor(anchor ? null : event.currentTarget);
+  };
 
   return (
     <Box
@@ -91,10 +103,11 @@ const Header = () => {
             alignItems: "center",
           }}
         >
-          <IconButton>
+          <IconButton onClick={handleCartClick}>
             <img src={cartIcon} />
             <CartBadge badgeContent={totalItems} color="primary" />
           </IconButton>
+          {cartopen && <Cart id={popupId} open={cartopen} />}
           <IconButton>
             <Avatar
               src={avatar}

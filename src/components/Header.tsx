@@ -35,7 +35,6 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState<boolean>(false);
-  // const [isCartOpen, setIsCartOpen] = useState(false);
 
   const cartItems = useSelector((state: RootState) => state.cart.data);
 
@@ -107,7 +106,14 @@ const Header = () => {
             <img src={cartIcon} />
             <CartBadge badgeContent={totalItems} color="primary" />
           </IconButton>
-          {cartopen && <Cart id={popupId} open={cartopen} />}
+          {cartopen && (
+            <Cart
+              id={popupId}
+              open={cartopen}
+              anchor={anchor}
+              cartItems={cartItems}
+            />
+          )}
           <IconButton>
             <Avatar
               src={avatar}
